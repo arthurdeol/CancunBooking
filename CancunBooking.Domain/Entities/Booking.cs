@@ -1,7 +1,9 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CancunBooking.Domain.Entities
 {
+    [Table("Booking")]
     public class Booking
     {
         public Booking(DateTime checkIn, DateTime checkOut)
