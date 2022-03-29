@@ -6,8 +6,9 @@ namespace CancunBooking.Domain.Entities
     [Table("Booking")]
     public class Booking
     {
-        public Booking(DateTime checkIn, DateTime checkOut)
+        public Booking(DateTime checkIn, DateTime checkOut, string name)
         {
+            Name = name;
             CheckIn = checkIn;
             CheckOut = checkOut;
             Active = true;
@@ -16,6 +17,7 @@ namespace CancunBooking.Domain.Entities
         public int Id { get; set; }
         public DateTime CheckIn { get; private set; }
         public DateTime CheckOut { get; private set; }
+        public string Name { get; private set; }
         public bool Active { get; private set; }
 
         public void CancelBooking() => Active = false;

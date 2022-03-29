@@ -1,7 +1,8 @@
 ﻿using CancunBooking.Application.Common;
 using CancunBooking.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace CancunBooking.Infrastructure.Persistence
 {
@@ -13,6 +14,13 @@ namespace CancunBooking.Infrastructure.Persistence
         }
 
         public DbSet<Booking> Bookings { get; set; }
+
+        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
+        {
+            var result = await base.SaveChangesAsync(cancellationToken);
+
+            return result;
+        }
 
     }
 }

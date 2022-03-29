@@ -1,4 +1,5 @@
-﻿using CancunBooking.Application.Booking.Queries.Get.Requests;
+﻿using CancunBooking.Application.Booking.Commands.CreateBooking;
+using CancunBooking.Application.Booking.Queries.Get.Requests;
 using CancunBooking.Application.Booking.Queries.GetBooking;
 using CancunBooking.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -21,6 +22,12 @@ namespace CancunBooking.API.Controllers
         public async Task<ActionResult<Booking>> GetByBookingCode(int code)
         {
             return await Mediator.Send(new GetBookingRequest() { BookingCode = code });
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<int>> Create(CreateBookingCommandRequest command)
+        {
+            return await Mediator.Send(command);
         }
     }
 }
