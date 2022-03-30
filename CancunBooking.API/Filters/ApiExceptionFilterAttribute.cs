@@ -18,7 +18,8 @@ namespace CancunBooking.API.Filters
             _logger = logger;
             _exceptionHandlers = new Dictionary<Type, Action<ExceptionContext>>
             {
-                { typeof(ValidationException), HandleValidationException }
+                { typeof(ValidationException), HandleValidationException },
+                { typeof(NotFoundException), HandleNotFoundException },
             };
         }
 
@@ -27,10 +28,13 @@ namespace CancunBooking.API.Filters
             HandleException(context);
 
             base.OnException(context);
+
+            _logger.LogError("Unhandled exception occurred while executing request: {ex}", context.Exception);
         }
 
         private void HandleException(ExceptionContext context)
         {
+
             Type type = context.Exception.GetType();
             if (_exceptionHandlers.ContainsKey(type))
             {
@@ -86,6 +90,22 @@ namespace CancunBooking.API.Filters
             {
                 StatusCode = StatusCodes.Status500InternalServerError
             };
+
+            context.ExceptionHandled = true;
+        }
+
+        private void HandleNotFoundException(ExceptionContext context)
+        {
+            var exception = context.Exception as NotFoundException;
+
+            var details = new ProblemDetails()
+            {
+                Type = "https://tools.ietf.org/html/rfc7231#section-6.5.4",
+                Title = "The specified resource was not found.",
+                Detail = exception.Message
+            };
+
+            context.Result = new NotFoundObjectResult(details);
 
             context.ExceptionHandled = true;
         }

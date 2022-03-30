@@ -34,8 +34,8 @@ namespace CancunBooking.Application.Booking.Commands.CreateBooking
         public async Task<bool> BeUniqueDate(CreateBookingCommandRequest model, DateTime checkin, CancellationToken cancellationToken)
         {
             return await _context.Bookings
-                .AllAsync(l => (l.CheckIn >= checkin && l.CheckOut <= checkin) || 
-                (l.CheckOut >= model.Checkin && l.CheckOut <= model.Checkout));
+                .AllAsync(l => (l.CheckOut >= checkin && l.CheckOut <= model.Checkout) || 
+                (l.CheckIn >= model.Checkin && l.CheckIn <= model.Checkout));
         }
     }
 }
