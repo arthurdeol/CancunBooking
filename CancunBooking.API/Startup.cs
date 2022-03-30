@@ -1,3 +1,4 @@
+using CancunBooking.API.Filters;
 using CancunBooking.Application;
 using CancunBooking.Infrastructure;
 using Microsoft.AspNetCore.Builder;
@@ -23,7 +24,10 @@ namespace CancunBooking.API
         {
             services.AddApplication();
             services.AddInfrastructure(_config);
-            services.AddControllers();
+            services.AddControllers(options =>
+            {
+                options.Filters.Add<ApiExceptionFilterAttribute>();
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CancunBooking.API", Version = "v1" });
