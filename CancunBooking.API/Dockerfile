@@ -17,10 +17,11 @@ COPY ["CancunBooking.Domain/CancunBooking.Domain.csproj", "CancunBooking.Domain/
 COPY ["CancunBooking.Infrastructure/CancunBooking.Infrastructure.csproj", "CancunBooking.Infrastructure/"]
 RUN dotnet restore "CancunBooking.API/CancunBooking.API.csproj"
 COPY . .
-RUN dotnet build "CancunBooking.API/CancunBooking.API.csproj" -c Release -o /app/build
+WORKDIR "/src/CancunBooking.API"
+RUN dotnet build "CancunBooking.API.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "CancunBooking.API/CancunBooking.API.csproj" -c Release -o /app/publish
+RUN dotnet publish "CancunBooking.API.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app

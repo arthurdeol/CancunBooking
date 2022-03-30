@@ -37,7 +37,7 @@ namespace CancunBooking.API.Controllers
         {
             await Mediator.Send(command);
 
-            return NoContent();
+            return Accepted();
         }
 
         [HttpDelete("{code}")]
@@ -45,7 +45,7 @@ namespace CancunBooking.API.Controllers
         {
             await Mediator.Send(new DeleteBookingCommandRequest { Code = code });
 
-            return NoContent();
+            return Accepted();
         }
     }
 }
