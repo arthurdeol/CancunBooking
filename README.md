@@ -23,8 +23,6 @@ Api to book hotel in Cancun following the principles of Clean Arqchitecture
 In order to build and run the docker containers, execute `docker-compose -f 'docker-compose.yml' up --build` from the root of the solution where you find the docker-compose.yml file.  You can also use "Docker Compose" from Visual Studio for Debugging purposes.
 Then open http://localhost:5000/swagger/index.html on your browser.
 
-To disable Docker in Visual Studio, right-click on the **docker-compose** file in the **Solution Explorer** and select **Unload Project**.
-
 ### Database Migrations
 
 To use `dotnet-ef` for your migrations please add the following flags to your command (values assume you are executing from repository root)
