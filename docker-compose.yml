@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  cancunbooking:
+    image: ${DOCKER_REGISTRY-}cancunbooking
+    build:
+      context: .
+      dockerfile: CancunBooking.API/Dockerfile
+    volumes:
+      - ~/.aspnet/https:/https:ro
+    ports:
+      - "5000:5000"
+      - "5001:5001"
+    depends_on:
+      - db
+    restart: on-failure
