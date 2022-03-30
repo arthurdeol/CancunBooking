@@ -2,6 +2,7 @@
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -33,9 +34,10 @@ namespace CancunBooking.Application.Booking.Commands.CreateBooking
         }
         public async Task<bool> BeUniqueDate(CreateBookingCommandRequest model, DateTime checkin, CancellationToken cancellationToken)
         {
-            return await _context.Bookings
-                .AllAsync(l => (l.CheckOut >= checkin && l.CheckOut <= model.Checkout) || 
-                (l.CheckIn >= model.Checkin && l.CheckIn <= model.Checkout));
+            var isAnyBoocking = await _context.Bookings
+                .Where(l => (l.CheckOut.Date >= checkin.Date && l.CheckOut.Date <= model.Checkout.Date) || 
+                (l.CheckIn >= model.Checkin.Date && l.CheckIn.Date <= model.Checkout.Date)).AnyAsync();
+            return !isAnyBoocking;
         }
     }
 }
