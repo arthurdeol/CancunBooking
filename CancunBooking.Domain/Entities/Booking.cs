@@ -21,10 +21,11 @@ namespace CancunBooking.Domain.Entities
         public bool Active { get; private set; }
 
         public void CancelBooking() => Active = false;
-        public void ModifyBooking(DateTime checkIn, DateTime checkOut)
+        public void ModifyBooking(DateTime checkIn, DateTime checkOut, string name)
         {
             CheckIn = checkIn;
             CheckOut = checkOut;
+            Name = name;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using CancunBooking.Application.Booking.Commands.CreateBooking;
 using CancunBooking.Application.Booking.Commands.DeleteBooking;
+using CancunBooking.Application.Booking.Commands.UpdateBooking;
 using CancunBooking.Application.Booking.Queries.Get.Requests;
 using CancunBooking.Application.Booking.Queries.GetBooking;
 using CancunBooking.Domain.Entities;
@@ -29,6 +30,14 @@ namespace CancunBooking.API.Controllers
         public async Task<ActionResult<int>> Create(CreateBookingCommandRequest command)
         {
             return await Mediator.Send(command);
+        }
+
+        [HttpPut]
+        public async Task<ActionResult> Update(UpdateBookingCommandRequest command)
+        {
+            await Mediator.Send(command);
+
+            return NoContent();
         }
 
         [HttpDelete("{code}")]

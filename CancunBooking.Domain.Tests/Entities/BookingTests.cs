@@ -50,7 +50,7 @@ namespace CancunBooking.Domain.Tests.Entities
         public void ShouldCorrectModifyBooking()
         {
             var booking = new Booking(new DateTime(2022, 3, 24), new DateTime(2022, 3, 25), "arthur");
-            booking.ModifyBooking(new DateTime(2022, 3, 26), new DateTime(2022, 3, 27));
+            booking.ModifyBooking(new DateTime(2022, 3, 26), new DateTime(2022, 3, 27), "arthur de oliveira");
             booking.CheckIn.Day.Should().Be(26);
             booking.CheckOut.Day.Should().Be(27);
         }
