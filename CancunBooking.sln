@@ -13,15 +13,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{93527E2D-2
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{1423CE28-7B34-4659-8194-C6BDD56FD341}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CancunBooking.API", "CancunBooking.API\CancunBooking.API.csproj", "{4426F745-743F-49A1-B435-03A1F2CED2A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CancunBooking.API", "CancunBooking.API\CancunBooking.API.csproj", "{4426F745-743F-49A1-B435-03A1F2CED2A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CancunBooking.Application", "CancunBooking.Application\CancunBooking.Application.csproj", "{16BD6A1E-274C-4CFE-A953-A374CD8678F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CancunBooking.Application", "CancunBooking.Application\CancunBooking.Application.csproj", "{16BD6A1E-274C-4CFE-A953-A374CD8678F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CancunBooking.Domain", "CancunBooking.Domain\CancunBooking.Domain.csproj", "{C0055F58-82C3-4585-BECC-9A6E80ABDFA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CancunBooking.Domain", "CancunBooking.Domain\CancunBooking.Domain.csproj", "{C0055F58-82C3-4585-BECC-9A6E80ABDFA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CancunBooking.Infrastructure", "CancunBooking.Infrastructure\CancunBooking.Infrastructure.csproj", "{DAB66A92-0B26-445C-AE48-0FDDFC710726}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CancunBooking.Infrastructure", "CancunBooking.Infrastructure\CancunBooking.Infrastructure.csproj", "{DAB66A92-0B26-445C-AE48-0FDDFC710726}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CancunBooking.Domain.Tests", "CancunBooking.Domain.Tests\CancunBooking.Domain.Tests.csproj", "{B45EE622-0453-4468-A7C8-79C469870B56}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CancunBooking.Domain.Tests", "CancunBooking.Domain.Tests\CancunBooking.Domain.Tests.csproj", "{B45EE622-0453-4468-A7C8-79C469870B56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CancunBooking.Application.Tests", "CancunBooking.Application.Tests\CancunBooking.Application.Tests.csproj", "{2631E52F-131D-46FD-9525-9C1238823628}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +51,10 @@ Global
 		{B45EE622-0453-4468-A7C8-79C469870B56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B45EE622-0453-4468-A7C8-79C469870B56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B45EE622-0453-4468-A7C8-79C469870B56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2631E52F-131D-46FD-9525-9C1238823628}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2631E52F-131D-46FD-9525-9C1238823628}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2631E52F-131D-46FD-9525-9C1238823628}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2631E52F-131D-46FD-9525-9C1238823628}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +65,7 @@ Global
 		{C0055F58-82C3-4585-BECC-9A6E80ABDFA6} = {5CA27A2A-3C3A-446C-A15D-C1283B4AE5FF}
 		{DAB66A92-0B26-445C-AE48-0FDDFC710726} = {8C98533F-98D7-4007-94CD-E9E2518292A3}
 		{B45EE622-0453-4468-A7C8-79C469870B56} = {93527E2D-20C8-4B60-8C99-3C709999533E}
+		{2631E52F-131D-46FD-9525-9C1238823628} = {93527E2D-20C8-4B60-8C99-3C709999533E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4CAD782C-71C9-433C-981D-2B786695A0B0}
